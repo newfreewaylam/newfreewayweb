@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewFreeway - 新飛越電腦網絡系統</title>
+    <style>
+        :root {
+            --primary-blue: #0000CC;
+            --soft-gray: #D4D0C8;
+            --accent-red: #FF0000;
+        }
+
+        body {
+            font-family: 'Verdana', 'Geneva', sans-serif;
+            background-color: var(--soft-gray);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 導航欄 */
+        header {
+            background-color: #CCCCCC;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: var(--primary-blue);
+            font-size: 24px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            display: block;
+            color: #666;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a img {
+            transition: transform 0.2s, opacity 0.2s;
+            height: 40px;
+            width: auto;
+        }
+
+        nav a img:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        /* 品牌滾動條 */
+        .brands {
+            background: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .brands span { margin: 0 5px; }
+        .color-blue { color: blue; }
+        .color-red { color: red; }
+        .color-green { color: green; }
+
+        /* 主橫幅區 - 優化為網格排列 */
+        .hero-banners {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            justify-items: center;
+        }
+
+        .hero-banners a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-banners img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .hero-banners img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 產品展示區 */
+        .product-grid {
+            display: grid;
+            /* 調整 minmax 寬度以縮小圖示顯示面積 */
+            grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 500px; /* 限制總寬度讓圖示保持細小排列 */
+            justify-content: center;
+
+        }
+
+        .product-item {
+            background: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 簡易輪播圖容器 */
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: 30px auto;
+            background: #fff;
+            padding: 10px;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .mySlides {
+            display: none;
+            text-align: center;
+        }
+
+        .mySlides img {
+            max-width: 100%;
+            height: 400px;
+            object-fit: contain;
+        }
+
+        /* 頁腳 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+            background: #eee;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; }
+            .mySlides img { height: 250px; }
+            .hero-banners { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <h1>NewFreeway <em>新飛越</em></h1>
+            <span>Computer Network System 電腦網絡系統</span>
+        </div>
+        <nav>
+            <a href="index.html"><img src="public-html/img/homepageb1.jpg" alt="Home"></a>
+            <a href="newsproduct.html"><img src="public-html/img/newpcsell.gif" alt="Products"></a>
+            <a href="mainjob.html"><img src="public-html/img/mainjob.gif" alt="Jobs"></a>
+            <a href="contact.html"><img src="public-html/img/contactus.gif" alt="Contact"></a>
+        </nav>
+    </div>
+</header>
+
+<div class="brands">
+    <div class="container">
+        <span class="color-blue">*ASUS*</span> <span>LINKSYS</span> <span>*EPSON*</span> 
+        <span class="color-green">esetNOD32</span> <span>*Seagate*</span> 
+        <span class="color-red">Kingston</span> <span>Lenovo ThinkCentra</span> 
+        <span style="color: darkgreen;">*apple*</span> <span>IBM * HP * AMP * WD</span> 
+        <span class="color-red">BUFFALO</span> <span>Logitech</span>
+    </div>
+</div>
+
+<main class="container">
+    <!-- 促銷橫幅區段 (已增加至七個項目) -->
+    <section class="hero-banners">
+        <!-- 原始項目 1 -->
+        <a href="public-html/doc/rog.jpg">
+            <img src="public-html/img/rog.png" alt="rog">
+        </a>           
+         <!-- 新增項目 2 -->
+        <a href="public-html/doc/vivobook.jpg">
+            <img src="public-html/img/vivobook.png" alt="Promotion 2">
+        </a>
+        <!-- 新增項目 3 -->
+        <a href="public-html/doc/expertbook.jpg">
+            <img src="public-html/img/expertbook.png" alt="Promotion 3">
+        </a>
+        <!-- 新增項目 4 -->
+        <a href="public-html/doc/zenbook.jpg">
+            <img src="public-html/img/zenbook.png" alt="Promotion 4">
+        </a>
+        <!-- 新增項目 5 -->
+        <a href="public-html/doc/dellpc.jpg">
+            <img src="public-html/img/dell.png" alt="Promotion 5">
+        </a>
+        <!-- 新增項目 6 -->
+        <a href="public-html/doc/lenovoloq.jpg">
+            <img src="public-html/img/lenovo.png" alt="Promotion 6">
+        </a>
+        <!-- 原始項目 7 -->
+        <a href="public-html/doc/ISMPOS Leaflet output_final.pdf">
+            <img src="public-html/img/pos.jpg" alt="POS System"> 
+        </a>
+    
+    </section>
+
+    <!-- 輪播圖 -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="public-html/photo/1.jpg" alt="Slide 1">
+        </div>
+        <div class="mySlides">
+            <img src="public-html/photo/2.jpg" alt="Slide 2">
+        </div>
+        <div class="mySlides">
+            <img src="public-html/photo/3.jpg" alt="Slide 3">
+        </div>
+        <div class="mySlides">
+            <img src="public-html/photo/4.jpg" alt="Slide 4">
+        </div>
+              <div class="mySlides">
+            <img src="public-html/photo/5.jpg" alt="Slide 5">
+        </div>
+              <div class="mySlides">
+             <img src="public-html/photo/6.jpg" alt="Slide 6">
+        </div>
+              <div class="mySlides">
+             <img src="public-html/photo/7.jpg" alt="Slide 7">
+        </div>
+         <p style="text-align:center; font-size: 12px; color: #999;">產品展示中...</p>
+    </div>
+
+</section>
+
+    <!-- 產品小圖 -->
+    <section class="product-grid">
+        <div class="product-item">
+            <img src="public-html/img/s12.png" alt="Product 1">
+        </div>
+        <div class="product-item">
+            <img src="public-html/img/s16.png" alt="Product 2">
+        </div>
+        <div class="product-item">
+            <img src="public-html/img/s17.png" alt="Product 3">
+        </div>
+        <div class="product-item">
+            <img src="public-html/img/s14.png" alt="Product 4">
+        </div>
+        <div class="product-item">
+            <img src="public-html/img/s18.png" alt="Product 5">
+        </div>
+
+
+</main>
+
+<footer>
+    <p>Copyright ©2001-2024 NEWFREEWAY COMPUTER NETWORK SYSTEM. All rights reserved.</p>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000);
+    }
+</script>
+
+</body>
+</html>
