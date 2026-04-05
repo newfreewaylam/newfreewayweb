@@ -6,8 +6,22 @@
 <style type="text/css">
     body { font-family: "Microsoft JhengHei", Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
     #container { width: 1200px; margin: 20px auto; background: #fff; border: 1px solid #ccc; overflow: hidden; }
-    #header { background: #333; color: #fff; padding: 15px; text-align: center; }
-    #header h1 { margin: 0; font-size: 24px; }
+   /* 統一為 newsproduct.html 的樣式 */
+    #header { 
+        background: #DDDDDD; 
+        padding: 0 10px;
+        text-align: center; /* 讓內容置中 */
+    } 
+    #header h1 {
+        margin: 0; 
+        padding: 10px 0;
+        color: #FF0000; /* newsproduct.html 的 style1 顏色 */
+        font-size: 24px;
+    }
+    #header img {
+        vertical-align: middle; /* 圖片與文字對齊 */
+        background-color: #993366; /* 原始圖片背景色 */
+    }
     
     /* 左側欄位 */
     #sidebar1 { 
@@ -74,16 +88,20 @@
 
 <body>
 <div id="container">
-  <div id="header">
-    <h1>- 主要業務介紹 - <a href="index.html"><img src="public-html/img/homepageb1.jpg" alt="HOME" width="30" height="30" align="absmiddle" border="0" /></a></h1>
-  </div>
+ <div id="header">
+    <h1>最新精選產品介紹
+        <a href="index.html">
+            <img src="public-html/img/homepageb1.jpg" alt="HOME" name="HOME" width="53" height="43" id="HOME" />
+        </a>
+    </h1>
+</div>
   
   <div id="sidebar1">
     <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img1')">
         <img src="public-html/img/s12.png" width="40" height="40" /><br/>ISMPOS餐飲管理系統
     </a>
     <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img2')">
-        <img src="public-html/img/s16.png" width="40" height="40" /><br/>企業電腦系統保養
+        <img src="public-html/img/s15.png" width="40" height="40" /><br/>企業電腦系統保養
     </a>
     <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img3')">
         <img src="public-html/img/s17.png" width="40" height="40" /><br/>PC電腦維修

@@ -4,33 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewFreeway - 新飛越電腦網絡系統</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #0000CC;
-            --soft-gray: #D4D0C8;
-            --accent-red: #FF0000;
+            --primary-color: #0f172a; /* 現代科技深藍 */
+            --accent-color: #3b82f6; /* 點綴亮藍 */
+            --bg-color: #f8fafc; /* 乾淨的背景灰白 */
+            --surface-color: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
         }
 
         body {
-            font-family: 'Verdana', 'Geneva', sans-serif;
-            background-color: var(--soft-gray);
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            color: #333;
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* 導航欄 */
-        header {
-            background-color: #CCCCCC;
-            padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 15px;
+        /* 導航欄 - 玻璃擬態 (Glassmorphism) */
+        /* 頁頭 - 使用極淺天藍色 */
+        header {
+            background-color: rgba(224, 242, 254, 0.9); /* 極淺的天藍色，帶有 90% 透明度 */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* 輕微陰影增加浮動感 */
+            border-bottom: 1px solid rgba(186, 230, 253, 0.5); /* 新增一條極細的淺藍邊框 */
+        }
+
+        /* 調整 Logo 與文字顏色，使其在淺藍底色上更和諧 */
+        .logo h1 {
+            margin: 0;
+            color: #0c4a6e; /* 改用深海藍色，與淺藍底色更搭 */
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo h1 em {
+            font-style: normal;
+            color: var(--accent-color); /* 維持原本的亮藍色強調 */
+        }
+
+        .logo span {
+            font-size: 13px;
+            display: block;
+            color: #7dd3fc; /* 標語使用再深一點點的藍色 */
+            margin-top: 4px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0369a1; /* 導航文字改為深藍色以確保閱讀性 */
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            background-color: #ffffff; /* 懸浮時變白，對比更明顯 */
+        }
+
+        nav a:hover {
+            color: #0f172a;
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .header-content {
@@ -42,140 +96,244 @@
 
         .logo h1 {
             margin: 0;
-            color: var(--primary-blue);
-            font-size: 24px;
+            color: var(--primary-color);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo h1 em {
+            font-style: normal;
+            color: var(--accent-color);
         }
 
         .logo span {
-            font-size: 14px;
+            font-size: 13px;
             display: block;
-            color: #666;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
 
+        /* 現代化純文字導航 (取代舊版 GIF) */
         nav {
             display: flex;
-            gap: 15px;
+            gap: 24px;
         }
 
-        nav a img {
-            transition: transform 0.2s, opacity 0.2s;
-            height: 40px;
-            width: auto;
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
         }
 
-        nav a img:hover {
-            transform: scale(1.05);
-            opacity: 0.8;
+        nav a:hover {
+            color: var(--accent-color);
+            background-color: #eff6ff;
         }
 
-        /* 品牌滾動條 */
-        .brands {
-            background: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 12px;
-            border-bottom: 1px solid #ccc;
+        /* 品牌滾動跑馬燈 - 現代流暢版 */
+        .marquee-wrapper {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
         }
 
-        .brands span { margin: 0 5px; }
-        .color-blue { color: blue; }
-        .color-red { color: red; }
-        .color-green { color: green; }
+        .marquee-content {
+            display: flex;
+            gap: 40px;
+            animation: marquee 20s linear infinite;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-        /* 主橫幅區 - 優化為網格排列 */
+        .marquee-content span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .marquee-content span::before {
+            content: "•";
+            color: var(--accent-color);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 主橫幅區 - 現代網格卡片 */
         .hero-banners {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px 0;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 40px 0;
         }
 
         .hero-banners a {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            display: block;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            background: var(--surface-color);
+        }
+
+        .hero-banners a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
         }
 
         .hero-banners img {
             width: 100%;
-            max-width: 400px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
+            display: block;
+            object-fit: cover;
         }
 
-        .hero-banners img:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 產品展示區 */
+        /* 產品展示區 - 加入交錯動畫與標籤 */
         .product-grid {
             display: grid;
-            /* 調整 minmax 寬度以縮小圖示顯示面積 */
-            grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
-            gap: 15px;
-            margin: 30px auto;
-            max-width: 400px; /* 限制總寬度讓圖示保持細小排列 */
-            justify-content: center;
-
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
+        /* 修改現有的 product-item */
         .product-item {
-            background: white;
-            padding: 10px;
+            background: var(--surface-color);
+            padding: 20px;
             text-align: center;
-            border-radius: 5px;
-            transition: 0.3s;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all var(--transition-speed);
+            position: relative;
+            
+            /* 交錯動畫初始狀態 */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease-out forwards;
+            
+            /* 新增以下屬性將其轉為區塊連結 */
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            cursor: pointer;
         }
 
         .product-item:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-3px) scale(1.02);
         }
 
         .product-item img {
-            max-width: 100%;
+            max-width: 50%;  /* 寬度設為 50%，整體面積約為原本的一半 */
             height: auto;
+            object-fit: contain;
+            margin: 0 auto;  /* 確保縮小後的圖片在卡片內維持水平置中 */
+            display: block;  /* 讓 margin 置中效果生效 */
         }
 
-        /* 簡易輪播圖容器 */
+        /* 新增：按鍵文字樣式 */
+        .btn-text {
+            margin-top: 15px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+        }
+
+        .product-item:hover .btn-text {
+            color: var(--accent-color); /* 懸浮時文字變為亮藍色 */
+        }
+        /* 產品狀態標籤 (Badges) */
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .badge-new { background: linear-gradient(135deg, #10b981, #059669); }
+        .badge-hot { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+        /* 動畫延遲設置 (交錯效果) */
+        .product-item:nth-child(1) { animation-delay: 0.1s; }
+        .product-item:nth-child(2) { animation-delay: 0.2s; }
+        .product-item:nth-child(3) { animation-delay: 0.3s; }
+        .product-item:nth-child(4) { animation-delay: 0.4s; }
+        .product-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 輪播圖容器 - 現代無邊框設計 */
         .slideshow-container {
-            max-width: 800px;
+            max-width: 900px;
             position: relative;
-            margin: 30px auto;
-            background: #fff;
-            padding: 10px;
-            border: 5px solid white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            background: var(--surface-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .mySlides {
             display: none;
             text-align: center;
+            background: #fafafa;
         }
 
         .mySlides img {
-            max-width: 100%;
-            height: 400px;
-            object-fit: contain;
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slideshow-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 12px;
+            background: var(--surface-color);
+            margin: 0;
+            border-top: 1px solid #f1f5f9;
         }
 
         /* 頁腳 */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             font-size: 14px;
-            color: #666;
-            background: #eee;
-            margin-top: 40px;
+            color: var(--text-muted);
+            background: var(--surface-color);
+            border-top: 1px solid #e2e8f0;
+            margin-top: 60px;
         }
 
         @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; }
-            nav { margin-top: 15px; }
+            .header-content { flex-direction: column; text-align: center; gap: 15px; }
+            nav { justify-content: center; flex-wrap: wrap; }
             .mySlides img { height: 250px; }
-            .hero-banners { grid-template-columns: 1fr; }
+            .marquee-content span::before { content: none; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -188,114 +346,104 @@
             <span>Computer Network System 電腦網絡系統</span>
         </div>
         <nav>
-            <a href="index.html"><img src="public-html/img/homepageb1.jpg" alt="Home"></a>
-            <a href="newsproduct.html"><img src="public-html/img/newpcsell.gif" alt="Products"></a>
-            <a href="mainjob.html"><img src="public-html/img/mainjob.gif" alt="Jobs"></a>
-            <a href="contact.html"><img src="public-html/img/contactus.gif" alt="Contact"></a>
+            <a href="index.html">首頁</a>
+            <a href="newsproduct.html">最新產品</a>
+            <a href="mainjob.html">服務項目</a>
+            <a href="contact.html">聯絡我們</a>
         </nav>
     </div>
 </header>
 
-<div class="brands">
-    <div class="container">
-        <span class="color-blue">*請點選圖片內容*</span> <span>ASUS</span> <span>*以下電腦價格只供參考*</span> 
-        <span class="color-green">*esetNOD32*</span> <span>*HP*</span> 
-        <span class="color-red">Kingston</span> <span>Lenovo</span> 
-        <span style="color: darkgreen;">*請點選圖片內容*</span> <span>WD</span> 
-        <span class="color-red">*請點選圖片內容*</span> 
-         <span class="color-red">*以下電腦價格只供參考*</span>
+<div class="marquee-wrapper">
+    <div class="marquee-content">
+        <span>請點選圖片內容查看詳情</span>
+        <span>ASUS 華碩特約經銷</span>
+        <span>以下電腦價格只供參考</span>
+        <span>esetNOD32 系統安全防護</span>
+        <span>HP 惠普授權代理</span>
+        <span>Kingston 金士頓記憶體</span>
+        <span>Lenovo 聯想筆記型電腦</span>
+        <span>WD 威騰電子儲存方案</span>
+        <span>專業 POS 系統安裝服務</span>
+        <span>請點選圖片內容查看詳情</span>
+        <span>ASUS 華碩特約經銷</span>
+        <span>以下電腦價格只供參考</span>
+        <span>esetNOD32 系統安全防護</span>
+        <span>HP 惠普授權代理</span>
+        <span>Kingston 金士頓記憶體</span>
+        <span>Lenovo 聯想筆記型電腦</span>
+        <span>WD 威騰電子儲存方案</span>
+        <span>專業 POS 系統安裝服務</span>
     </div>
 </div>
 
 <main class="container">
-    <!-- 促銷橫幅區段 (已增加至9個項目) -->
     <section class="hero-banners">
-        <!-- 原始項目 1 -->
-        <a href="public-html/doc/rog.jpg">
-            <img src="public-html/img/rog.png" alt="rog">
-        </a>           
-         <!-- 新增項目 2 -->
-        <a href="public-html/doc/vivobook.jpg">
-            <img src="public-html/img/vivobook.png" alt="Promotion 2">
-        </a>
-        <!-- 新增項目 3 -->
-        <a href="public-html/doc/proart.jpg">
-            <img src="public-html/img/proart.png" alt="Promotion 3">
-        </a>
-        <!-- 新增項目 4 -->
-        <a href="public-html/doc/zenbook.jpg">
-            <img src="public-html/img/zenbook.png" alt="Promotion 4">
-        </a>
-        <!-- 新增項目 5 -->
-        <a href="public-html/doc/expertbook.jpg">
-            <img src="public-html/img/expertbook.png" alt="Promotion 5">
-        </a>
-        <!-- 新增項目 6 -->
-        <a href="public-html/doc/lenovoloq.jpg">
-            <img src="public-html/img/lenovo.png" alt="Promotion 6">
-        </a>
-        <!-- 原始項目 7 -->
-        <a href="public-html/doc/dellpc.jpg">
-            <img src="public-html/img/dell.png" alt="Promotion7"> 
-        </a>
-         <!-- 原始項目 8 -->
-        <a href="public-html/doc/ESET2026 installation.pdf">
-            <img src="public-html/img/eset.png" alt="NOD System"> 
-        </a>
-         <!-- 原始項目 9 -->
-        <a href="public-html/doc/ISMPOS Leaflet output_final.pdf">
-            <img src="public-html/img/pos.jpg" alt="POS System"> 
-        </a>
-
-    
+        <a href="public-html/doc/rog.jpg"><img src="public-html/img/rog.png" alt="ROG"></a>           
+        <a href="public-html/doc/vivobook.jpg"><img src="public-html/img/vivobook.png" alt="Vivobook"></a>
+        <a href="public-html/doc/proart.jpg"><img src="public-html/img/proart.png" alt="ProArt"></a>
+        <a href="public-html/doc/zenbook.jpg"><img src="public-html/img/zenbook.png" alt="Zenbook"></a>
+        <a href="public-html/doc/expertbook.jpg"><img src="public-html/img/expertbook.png" alt="Expertbook"></a>
+        <a href="public-html/doc/lenovoloq.jpg"><img src="public-html/img/lenovo.png" alt="Lenovo"></a>
+        <a href="public-html/doc/dellpc.jpg"><img src="public-html/img/dell.png" alt="Dell"></a>
+        <a href="public-html/doc/ESET2026 installation.pdf"><img src="public-html/img/eset.png" alt="NOD System"></a>
+        <a href="public-html/doc/ISMPOS Leaflet output_final.pdf"><img src="public-html/img/pos.jpg" alt="POS System"></a>
     </section>
 
-    <!-- 輪播圖 -->
     <div class="slideshow-container">
-        <div class="mySlides">
+        <div class="mySlides fade">
             <img src="public-html/photo/1.jpg" alt="Slide 1">
         </div>
-        <div class="mySlides">
+        <div class="mySlides fade">
             <img src="public-html/photo/2.jpg" alt="Slide 2">
         </div>
-        <div class="mySlides">
+        <div class="mySlides fade">
             <img src="public-html/photo/3.jpg" alt="Slide 3">
         </div>
-        <div class="mySlides">
+        <div class="mySlides fade">
             <img src="public-html/photo/4.jpg" alt="Slide 4">
         </div>
-              <div class="mySlides">
+        <div class="mySlides fade">
             <img src="public-html/photo/5.jpg" alt="Slide 5">
         </div>
-              <div class="mySlides">
+        <div class="mySlides fade">
              <img src="public-html/photo/6.jpg" alt="Slide 6">
         </div>
-              <div class="mySlides">
+        <div class="mySlides fade">
              <img src="public-html/photo/7.jpg" alt="Slide 7">
         </div>
-         <p style="text-align:center; font-size: 12px; color: #999;">產品展示中...</p>
+        <p class="slideshow-caption">最新產品動態展示中...</p>
     </div>
 
-</section>
-
-    <!-- 產品小圖 -->
     <section class="product-grid">
-        <div class="product-item">
-            <img src="public-html/img/s12.png" alt="Product 1">
-        </div>
-        <div class="product-item">
-            <img src="public-html/img/s16.png" alt="Product 2">
-        </div>
-        <div class="product-item">
-            <img src="public-html/img/s17.png" alt="Product 3">
-        </div>
-        <div class="product-item">
-            <img src="public-html/img/s14.png" alt="Product 4">
-        </div>
-        <div class="product-item">
-            <img src="public-html/img/s18.png" alt="Product 5">
-        </div>
-
+        <a href="mainjob.html" class="product-item">
+            <span class="badge badge-new">服務</span>
+            <img src="public-html/img/s12.png" alt="ISMPOS餐飲管理系統">
+            <div class="btn-text">ISMPOS系統</div>
+        </a>
+        
+        <a href="mainjob.html" class="product-item">
+            <img src="public-html/img/s13.png" alt="企業電腦系統保養">
+            <div class="btn-text">企業系統保養</div>
+        </a>
+        
+        <a href="mainjob.html" class="product-item">
+            <span class="badge badge-hot">服務</span>
+            <img src="public-html/img/s17.png" alt="PC電腦維修">
+            <div class="btn-text">PC電腦維修</div>
+        </a>
+        
+        <a href="mainjob.html" class="product-item">
+            <img src="public-html/img/s14.png" alt="筆記本電腦維修">
+            <div class="btn-text">筆記本維修</div>
+        </a>
+        
+        <a href="mainjob.html" class="product-item">
+            <span class="badge badge-new">服務</span>
+            <img src="public-html/img/s18.png" alt="技術支援">
+            <div class="btn-text">技術支援</div>
+        </a>
+    </section>
 
 </main>
 
@@ -316,7 +464,17 @@
         slideIndex++;
         if (slideIndex > slides.length) {slideIndex = 1}    
         slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 3000);
+        
+        // 加入簡單的淡入淡出動畫過渡
+        slides[slideIndex-1].animate([
+            { opacity: 0 },
+            { opacity: 1 }
+        ], {
+            duration: 800,
+            fill: 'forwards'
+        });
+
+        setTimeout(showSlides, 3500); // 延長播放時間至 3.5 秒讓視覺更沉穩
     }
 </script>
 
