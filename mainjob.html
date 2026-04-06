@@ -1,132 +1,236 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ISMPOS 業務介紹 - 首頁預設顯示版</title>
-<style type="text/css">
-    body { font-family: "Microsoft JhengHei", Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
-    #container { width: 1200px; margin: 20px auto; background: #fff; border: 1px solid #ccc; overflow: hidden; }
-   /* 統一為 newsproduct.html 的樣式 */
-    #header { 
-        background: #DDDDDD; 
-        padding: 0 10px;
-        text-align: center; /* 讓內容置中 */
-    } 
-    #header h1 {
-        margin: 0; 
-        padding: 10px 0;
-        color: #FF0000; /* newsproduct.html 的 style1 顏色 */
-        font-size: 24px;
-    }
-    #header img {
-        vertical-align: middle; /* 圖片與文字對齊 */
-        background-color: #993366; /* 原始圖片背景色 */
-    }
-    
-    /* 左側欄位 */
-    #sidebar1 { 
-        width: 200px; 
-        float: left; 
-        padding: 20px; 
-        border-right: 1px solid #ddd; 
-        background-color: #fafafa;
-    }
-    .nav-btn { 
-        display: block; 
-        margin-bottom: 12px; 
-        padding: 12px 5px; 
-        background: #fff; 
-        text-align: center; 
-        text-decoration: none; 
-        color: #333; 
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-        font-size: 14px;
-    }
-    .nav-btn:hover { background: #f0f0f0; border-color: #999; }
-
-    /* 右側顯示區 */
-    #mainContent { 
-        width: 880px; 
-        float: right; 
-        padding: 20px; 
-        min-height: 600px; 
-        text-align: center;
-    }
-
-    /* 圖片樣式 */
-    .display-img { 
-        max-width: 100%; 
-        height: auto; 
-        border: 1px solid #eee; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-        display: none; /* 預設全部隱藏 */
-    }
-
-    /* 強制第一張圖片預設顯示 */
-    #img1 { 
-        display: block; 
-    }
-    
-    .clearfloat { clear: both; height: 0; font-size: 1px; line-height: 0px; }
-    #footer { background: #333; color: #ccc; padding: 10px; font-size: 12px; }
-</style>
-
-<script type="text/javascript">
-    function showImage(imgId) {
-        // 隱藏所有圖片
-        var images = document.getElementsByClassName('display-img');
-        for (var i = 0; i < images.length; i++) {
-            images[i].style.display = 'none';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務項目 - NewFreeway 新飛越</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f172a; 
+            --accent-color: #3b82f6; 
+            --bg-color: #f8fafc; 
+            --surface-color: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
         }
-        // 顯示點選的圖片
-        document.getElementById(imgId).style.display = 'block';
-    }
-</script>
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 導航欄 - 與 index.html 完全一致 */
+        header {
+            background-color: rgba(224, 242, 254, 0.9); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(186, 230, 253, 0.5);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: #0c4a6e;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo h1 em {
+            font-style: normal;
+            color: var(--accent-color);
+        }
+
+        .logo span {
+            font-size: 13px;
+            display: block;
+            color: #7dd3fc;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0369a1;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            background-color: #ffffff;
+        }
+
+        /* 內容區佈局 */
+        .main-wrapper {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        /* 左側側邊欄 */
+        #sidebar1 { 
+            width: 250px; 
+            flex-shrink: 0;
+        }
+
+        .nav-btn { 
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px; 
+            padding: 15px; 
+            background: var(--surface-color); 
+            text-decoration: none; 
+            color: var(--text-main); 
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all var(--transition-speed);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-btn img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .nav-btn:hover { 
+            background: #eff6ff;
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        /* 右側顯示區 */
+        #mainContent { 
+            flex-grow: 1;
+            background: var(--surface-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            min-height: 600px; 
+            text-align: center;
+        }
+
+        .display-img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px;
+            display: none; 
+        }
+
+        #img1 { display: block; }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            background: var(--surface-color);
+            border-top: 1px solid #e2e8f0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; gap: 15px; }
+            .main-wrapper { flex-direction: column; }
+            #sidebar1 { width: 100%; }
+        }
+    </style>
+
+    <script type="text/javascript">
+        function showImage(imgId) {
+            var images = document.getElementsByClassName('display-img');
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+            document.getElementById(imgId).style.display = 'block';
+        }
+    </script>
 </head>
 
 <body>
-<div id="container">
- <div id="header">
-    <h1>最新精選產品介紹
-        <a href="index.html">
-            <img src="public-html/img/homepageb1.jpg" alt="HOME" name="HOME" width="53" height="43" id="HOME" />
-        </a>
-    </h1>
-</div>
-  
-  <div id="sidebar1">
-    <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img1')">
-        <img src="public-html/img/s12.png" width="40" height="40" /><br/>ISMPOS餐飲管理系統
-    </a>
-    <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img2')">
-        <img src="public-html/img/s15.png" width="40" height="40" /><br/>企業電腦系統保養
-    </a>
-    <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img3')">
-        <img src="public-html/img/s17.png" width="40" height="40" /><br/>PC電腦維修
-    </a>
-    <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img4')">
-        <img src="public-html/img/s14.png" width="40" height="40" /><br/>筆記本電腦維修
-    </a>
-    <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img5')">
-        <img src="public-html/img/s18.png" width="40" height="40" /><br/>技術支援 
-    </a>
-  </div>
 
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <h1>***<em>服務項目</em>***</h1>
+            
+        </div>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="newsproduct.html">最新產品</a>
+            <a href="mainjob.html">服務項目</a>
+            <a href="contact.html">聯絡我們</a>
+        </nav>
+    </div>
+</header>
 
-  <div id="mainContent">
-    <img id="img1" src="public-html/mainjob-img/1.jpg" class="display-img" alt=ISMPOS餐飲管理系統"" />
-    <img id="img2" src="public-html/mainjob-img/2.jpg" class="display-img" alt="企業電腦系統保養" />
-    <img id="img3" src="public-html/mainjob-img/3.jpg" class="display-img" alt="PC電腦維修" />
-    <img id="img4" src="public-html/mainjob-img/4.jpg" class="display-img" alt="筆記本電腦維修" />
-    <img id="img5" src="public-html/mainjob-img/5.jpg" class="display-img" alt="技術支援" />
-  </div>
+<main class="container">
+    <div class="main-wrapper">
+        <aside id="sidebar1">
+            <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img1')">
+                <img src="public-html/img/s12.png" />ISMPOS餐飲系統
+            </a>
+            <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img2')">
+                <img src="public-html/img/s15.png" />企業系統保養
+            </a>
+            <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img3')">
+                <img src="public-html/img/s17.png" />PC電腦維修
+            </a>
+            <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img4')">
+                <img src="public-html/img/s14.png" />筆記本維修
+            </a>
+            <a href="javascript:void(0)" class="nav-btn" onclick="showImage('img5')">
+                <img src="public-html/img/s18.png" />技術支援
+            </a>
+        </aside>
 
-  <div class="clearfloat"></div>
-  <div id="footer">
-    <center><p>© NewFreeway 業務系統介紹版權所有</p></center>
-  </div>
-</div>
+        <section id="mainContent">
+            <img id="img1" src="public-html/mainjob-img/1.jpg" class="display-img" alt="ISMPOS餐飲管理系統" />
+            <img id="img2" src="public-html/mainjob-img/2.jpg" class="display-img" alt="企業電腦系統保養" />
+            <img id="img3" src="public-html/mainjob-img/3.jpg" class="display-img" alt="PC電腦維修" />
+            <img id="img4" src="public-html/mainjob-img/4.jpg" class="display-img" alt="筆記本電腦維修" />
+            <img id="img5" src="public-html/mainjob-img/5.jpg" class="display-img" alt="技術支援" />
+        </section>
+    </div>
+</main>
+
+<footer>
+    <p>Copyright ©2001-2024 NEWFREEWAY COMPUTER NETWORK SYSTEM. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
